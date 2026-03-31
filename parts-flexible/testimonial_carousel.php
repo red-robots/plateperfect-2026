@@ -7,9 +7,8 @@
       <?php $ti=1; foreach ($testimonials as $t) { 
         $text = $t['text'];
         $author = $t['author'];
-        $is_first = ($ti==1) ? ' first':'';
         if($text) { ?>
-        <div class="swiper-slide testimonial-item testimonial-item-<?php echo $ti ?><?php echo $is_first ?>">
+        <div class="swiper-slide testimonial-item testimonial-item-<?php echo $ti ?>">
           <div class="wrap">
             <div class="text"><?php echo $text ?></div>
             <?php if ($author) { ?>

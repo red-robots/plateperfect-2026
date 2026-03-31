@@ -17,11 +17,10 @@ jQuery(document).ready(function($){
         loop: true,
         speed: 400,
         effect: 'slide',
-        autoplay:false,
-        // autoplay: {
-        //   delay: 5000, // Time in ms between slides (3 seconds)
-        //   disableOnInteraction: false, // Keeps sliding after user interacts
-        // },
+        autoplay: {
+          delay: 8000, // Time in ms between slides (3 seconds)
+          disableOnInteraction: false, // Keeps sliding after user interacts
+        },
         navigation: {
           nextEl: el.querySelector('.testimonial-button-next'),
           prevEl: el.querySelector('.testimonial-button-prev'),

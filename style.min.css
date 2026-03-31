@@ -1404,6 +1404,12 @@ h6{font-size:28px}
 .repeatable-testimonial_carousel:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-image:url("assets/img/silverware-pattern.png");background-size:35px}
 .repeatable-testimonial_carousel .testimonial-swiper{position:relative;z-index:5}
 .repeatable-testimonial_carousel .testimonial-swiper .swiper-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-next,.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-prev{cursor:pointer;display:inline-block;width:50px;height:50px;border-radius:200px;background-color:#caa24d;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:20;-webkit-transition:all ease .3s;transition:all ease .3s}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-next:before,.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-prev:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1);background-image:url("assets/img/arrow.svg");background-size:35px;background-position:center;background-repeat:no-repeat}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-next:hover,.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-next:focus,.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-prev:hover,.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-prev:focus{background:#624d47}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-prev{left:15px}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-prev:before{-webkit-transform:scaleX(-1);transform:scaleX(-1)}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-button-next{right:15px}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{background:#f7f2f0;border-radius:10px;-webkit-box-shadow:0 5px 20px rgba(0,0,0,.25);box-shadow:0 5px 20px rgba(0,0,0,.25);padding:30px;min-height:200px;-webkit-transform:scale(0.75);transform:scale(0.75);-webkit-transition:-webkit-transform ease .5s;transition:-webkit-transform ease .5s;transition:transform ease .5s;transition:transform ease .5s,-webkit-transform ease .5s}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .wrap{text-align:center;color:#624d47}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .text{position:relative}
@@ -1413,6 +1419,7 @@ h6{font-size:28px}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item.swiper-slide-active{-webkit-transform:scale(1.11);transform:scale(1.11);z-index:20}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item-3:not(.swiper-slide-next):not(.swiper-slide-active){visibility:hidden;pointer-events:none}
 .repeatable-testimonial_carousel .testimonial-swiper.is-changing .testimonial-item-3{visibility:visible !important;pointer-events:auto !important}
+.repeatable-testimonial_carousel .testimonial-swiper:has(.testimonial-item-1.swiper-slide-active) .testimonial-button-prev{opacity:0;pointer-events:none}
 @media(min-width:960px){.site-header .menu-toggle{left:50px}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:50px 40px}
 }@media(min-width:1024px){.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:70px 50px}
