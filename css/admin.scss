@@ -1,0 +1,16 @@
+.acf-field-repeater[data-name="restaurant_logos"] {
+  .acf-image-uploader .image-wrap img {
+    max-width: unset !important;
+    max-height: unset !important;
+    width: auto;
+    height: 50px;
+  }
+}
+.acf-field-repeater[data-name="slideshow_images"] {
+  .acf-image-uploader .image-wrap img {
+    max-width: unset !important;
+    max-height: 300px !important;
+    width: auto;
+    height: auto;
+  }
+}

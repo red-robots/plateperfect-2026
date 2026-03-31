@@ -14,11 +14,11 @@
  * @return array
  */
 
-$date = new DateTime();
-$date->setTimezone(new DateTimeZone('America/Detroit'));
-$fdate = $date->format('Y-m-d H:i:s');
-define('WP_CURRENT_TIME', $fdate);
-define('THEMEURI',get_template_directory_uri() . '/');
+// $date = new DateTime();
+// $date->setTimezone(new DateTimeZone('America/Detroit'));
+// $fdate = $date->format('Y-m-d H:i:s');
+// define('WP_CURRENT_TIME', $fdate);
+// define('THEMEURI',get_template_directory_uri() . '/');
 
 function bellaworks_body_classes( $classes ) {
     // Adds a class of group-blog to blogs with more than 1 published author.
@@ -142,17 +142,6 @@ function get_social_media() {
     return ($list) ? $list : '';
 }
 
-// function get_social_links() {
-//     $social_types = social_icons();
-//     $social = array();
-//     foreach($social_types as $k=>$icon) {
-//         if( $value = get_field($k,'option') ) {
-//             $social[$k] = array('link'=>$value,'icon'=>$icon);
-//         }
-//     }
-//     return $social;
-// }
-
 function social_icons() {
     $social_types = array(
         'facebook'  => 'fab fa-facebook-square',
@@ -216,20 +205,24 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
 
 
 /* Remove richtext editor on specific page */
-function remove_pages_editor(){
-    global $wpdb;
-    $post_id = ( isset($_GET['post']) && $_GET['post'] ) ? $_GET['post'] : '';
-    $disable_editor = array();
-    if($post_id) {        
-        $page_ids_disable = get_field("disable_editor_on_pages","option");
-        if( $page_ids_disable && in_array($post_id,$page_ids_disable) ) {
-            remove_post_type_support( 'page', 'editor' );
-        }
-    }
-}   
-add_action( 'init', 'remove_pages_editor' );
+add_action('init', 'hide_editor_by_page_id');
+function hide_editor_by_page_id() {
+  // Check if we are in the admin area
+  if (!is_admin()) return;
 
+  // Get the post ID from the URL
+  $post_id = (isset($_GET['post']) && $_GET['post']) ? $_GET['post'] : '';
+  if(empty($post_id)) {
+    $post_id = (isset($_POST['post']) && $_POST['post']) ? $_POST['post'] : '';
+  }
+  if (!isset($post_id)) return;
 
+  $homepage_id = get_option('page_on_front');
+  // Hide the editor on homepage
+  if ( (int) $post_id === (int) $homepage_id ) {
+    remove_post_type_support('page', 'editor');
+  }
+}
 
 // add_action( 'save_post', 'save_post_with_acf');
 // function save_post_with_acf( $post_id) {
@@ -253,152 +246,6 @@ add_action( 'init', 'remove_pages_editor' );
 // }
 
 
-add_shortcode( 'featured_story', 'featured_story_func' );
-function featured_story_func( $atts ) {
-  global $wpdb;
-  $query = "SELECT p.*, pm.post_id, pm.meta_id FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta pm WHERE p.ID=pm.post_id AND p.post_status='publish' AND p.post_type='post' AND pm.meta_key='featured_story' AND pm.meta_value='1'";
-  $result = $wpdb->get_row($query);
-  $output = '';
-//   print_r($result);
-
-  if($result) {
-    $postid = $result->post_id;
-    ob_start();
-    include( locate_template('parts/featured_story.php') ); 
-    $output = ob_get_contents();
-    ob_end_clean();
-  }
-  return $output;
-}
-
-
-add_shortcode( 'recent_news', 'recent_news_func' );
-function recent_news_func( $atts ) {
-  $a = shortcode_atts( array(
-      'show' => 3,
-  ), $atts );
-  $perpage = (isset($a['show']) && $a['show']) ? $a['show'] : 3;
-  $output = '';
-  ob_start();
-  include( locate_template('parts/recent-news-home.php') ); 
-  $output = ob_get_contents();
-  ob_end_clean();
-  return $output;
-}
-
-add_shortcode( 'newsfeeds', 'newsfeeds_func' );
-function newsfeeds_func( $atts ) {
-  $a = shortcode_atts( array(
-    'perpage' => 3,
-  ), $atts );
-  $perpage = (isset($a['perpage']) && $a['perpage']) ? $a['perpage'] : 3;
-  $output = '';
-  ob_start();
-  include( locate_template('parts/news-feeds.php') ); 
-  $output = ob_get_contents();
-  ob_end_clean();
-  return $output;
-}
-
-add_shortcode( 'events-feeds', 'events_feeds_func' );
-function events_feeds_func( $atts ) {
-  $a = shortcode_atts( array(
-    'perpage' => 3,
-  ), $atts );
-  $perpage = (isset($a['perpage']) && $a['perpage']) ? $a['perpage'] : 3;
-  $output = '';
-  ob_start();
-  include( locate_template('parts/events-feeds.php') ); 
-  $output = ob_get_contents();
-  ob_end_clean();
-  return $output;
-}
-
-
-add_shortcode( 'eventsfeeds', 'eventsfeeds_func' );
-function eventsfeeds_func( $atts ) {
-  $a = shortcode_atts( array(
-    'perpage' => 3,
-  ), $atts );
-  $perpage = (isset($a['perpage']) && $a['perpage']) ? $a['perpage'] : 3;
-  $output = '';
-  ob_start();
-  include( locate_template('parts/events-feeds.php') ); 
-  $output = ob_get_contents();
-  ob_end_clean();
-  return $output;
-}
-
-
-
-// add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
-// function my_wp_nav_menu_objects( $items, $args ) {
-//   foreach( $items as &$item ) {
-//     $target = get_field('link_target', $item);
-//     // if( $icon ) {
-//     //   $item->title .= ' <i class="fa fa-'.$icon.'"></i>';  
-//     // }
-//   }
-//   return $items;
-// }
-
-/* Disabling Gutenberg on certain templates */
-function ea_disable_editor( $id = false ) {
-    $excluded_templates = array(
-      'page-repeatable.php'
-    );
-  
-    // $excluded_ids = array(
-    //   //get_option( 'page_on_front' ) /* Home page */
-    // );
-  
-    if( empty( $id ) )
-      return false;
-  
-    $id = intval( $id );
-    $template = get_page_template_slug( $id );
-  
-    return in_array( $template, $excluded_templates );
-  }
-    
-  /**
-   * Disable Gutenberg by template
-   *
-   */
-  function ea_disable_gutenberg( $can_edit, $post_type ) {
-
-    $exclude_posttypes = array('team','events');
-    $ptype = ( isset($_GET['post']) && $_GET['post'] ) ?  get_post_type($_GET['post']) : '';
-  
-    if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
-      return $can_edit;
-  
-    if( ea_disable_editor( $_GET['post'] ) )
-      $can_edit = false;
-    
-    if( $ptype && in_array($ptype, $exclude_posttypes) )
-      $can_edit = false;
-
-    // if( get_post_type($_GET['post'])=='team' )
-    //   $can_edit = false;
-  
-    // if( $_GET['post']==15 ) /* Contact page */
-    //   $can_edit = false;
-  
-    return $can_edit;
-  
-  }
-  add_filter( 'gutenberg_can_edit_post_type', 'ea_disable_gutenberg', 10, 2 );
-  add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
-
-  add_filter('use_block_editor_for_post_type', 'prefix_disable_gutenberg', 10, 2);
-  function prefix_disable_gutenberg($current_status, $post_type)
-  {
-      // Use your post type key instead of 'product'
-      if ($post_type === 'events') return false;
-      return $current_status;
-  }
-
 
 
 // add new buttons
@@ -414,231 +261,62 @@ function myplugin_register_buttons( $buttons ) {
 add_filter( 'mce_external_plugins', 'myplugin_register_tinymce_javascript' );
 
 function myplugin_register_tinymce_javascript( $plugin_array ) {
-
-   $plugin_array['checklistbutton'] = get_stylesheet_directory_uri() . '/assets/js/custom/custom-tinymce.js';
-   $plugin_array['ctabutton'] = get_stylesheet_directory_uri() . '/assets/js/custom/custom-tinymce.js';
-
-   return $plugin_array;
+  $plugin_array['checklistbutton'] = get_stylesheet_directory_uri() . '/assets/js/custom/custom-tinymce.js';
+  $plugin_array['ctabutton'] = get_stylesheet_directory_uri() . '/assets/js/custom/custom-tinymce.js';
+  return $plugin_array;
 }
 
-
-
-function getParagraph($content, $num=0) {
-    $post_content = apply_filters('the_content', $content);
-    $post_content = str_replace('</p>', '', $post_content);
-    $paras = explode('<p>', $post_content);
-    array_shift($paras);
-    $output = '';
-    if($num) {
-        for($i=0; $i<$num; $i++) {
-            $output .= '<p>'. $paras[$i] .'</p>';
-        }
-    }
-    return $output; 
-}
-
-add_action('rest_api_init', function () {
-    register_rest_route( 'myquery/v1', 'latest-posts',array(
-        'methods'  => 'GET',
-        'callback' => 'get_latest_posts'
-    ));
-});
-function get_latest_posts($request) {
-    $postType = $request['ptype'];
-    $posts_per_page = -1;
-    $args = array(
-        'posts_per_page'  => $posts_per_page,
-        'post_type'       => $postType,
-        'orderby'         => 'date',
-        'order'           => 'desc',
-        'post_status'     => 'publish'
-    );
+// add_action('rest_api_init', function () {
+//     register_rest_route( 'myquery/v1', 'latest-posts',array(
+//         'methods'  => 'GET',
+//         'callback' => 'get_latest_posts'
+//     ));
+// });
+// function get_latest_posts($request) {
+//     $postType = $request['ptype'];
+//     $posts_per_page = -1;
+//     $args = array(
+//         'posts_per_page'  => $posts_per_page,
+//         'post_type'       => $postType,
+//         'orderby'         => 'date',
+//         'order'           => 'desc',
+//         'post_status'     => 'publish'
+//     );
     
-    if (empty($postType)) {
-    return new WP_Error( 'post_type', 'No post type indicated', array('status' => 404) );
-    }
-
-    $posts = get_posts($args);
-    $extractedImages = array();
-    if($posts) {
-        foreach($posts as $row) {
-            $id = $row->ID;
-            $imageUrl = get_the_post_thumbnail_url($id);
-            $row->featured_image = $imageUrl;
-            $content = $row->post_content;
-            // $htmlDom = new DOMDocument;
-            // $htmlDom->loadHTML($content);
-            // $imageTags = $htmlDom->getElementsByTagName('img');
-            // $extractedImages = array();
-            // foreach($imageTags as $imageTag){
-            //     $extractedImages[] = $imageTag->getAttribute('src');
-            // }
-            preg_match_all('~<img.*?src=["\']+(.*?)["\']+~', $content, $urls);
-            $extractedImages = $urls[1];
-            //$extractedImages[] = $urls;
-
-        }
-    }
-
-    $res['count'] = ($posts) ? count($posts) : 0;
-    $res['posts'] = $posts;
-
-    $response = new WP_REST_Response($extractedImages);
-    $response->set_status(200);
-
-    return $response;
-}
-
-// if( isset($_GET['test']) && $_GET['test']='query' ) {
-//     $upload =  wp_upload_dir();
-//     $upload_abspath = $upload['basedir'];
-//     $upload_url = $upload['baseurl'];
-//     $temp_folder = $upload_abspath . '/allposts/'; 
-//     if (!file_exists($temp_folder)) {
-//         // mkdir($temp_folder, 0777, true);
-//         mkdir($temp_folder, 0755, true);
+//     if (empty($postType)) {
+//     return new WP_Error( 'post_type', 'No post type indicated', array('status' => 404) );
 //     }
 
-//     // $json = file_get_contents('https://nourishup.test/wp-json/myquery/v1/latest-posts/?ptype=post');
-//     // $object = json_decode($json);
-//     // echo "<pre>";
-//     // print_r($object);
-//     // echo "</pre>";
-//     //copy('http://www.google.co.in/intl/en_com/images/srpr/logo1w.png', '/tmp/file.png');
+//     $posts = get_posts($args);
+//     $extractedImages = array();
+//     if($posts) {
+//         foreach($posts as $row) {
+//             $id = $row->ID;
+//             $imageUrl = get_the_post_thumbnail_url($id);
+//             $row->featured_image = $imageUrl;
+//             $content = $row->post_content;
+//             // $htmlDom = new DOMDocument;
+//             // $htmlDom->loadHTML($content);
+//             // $imageTags = $htmlDom->getElementsByTagName('img');
+//             // $extractedImages = array();
+//             // foreach($imageTags as $imageTag){
+//             //     $extractedImages[] = $imageTag->getAttribute('src');
+//             // }
+//             preg_match_all('~<img.*?src=["\']+(.*?)["\']+~', $content, $urls);
+//             $extractedImages = $urls[1];
+//             //$extractedImages[] = $urls;
 
-//     $url = 'https://loavesandfishes.org/wp-content/uploads/2023/12/Scrooge-300x300.png';
-//     $fileName = basename($url);
-//     $dir = $temp_folder . $baseName;
-//     $parts = explode('wp-content/uploads/', $url);
-//     if($parts && count($parts)>1) {
-//         $path = $parts[1];
-//         $folders = str_replace('/'.$fileName,'', $path);
-//         $strings = explode('/', $folders);
-//         $storage = $temp_folder . $folders;
-//         if (!file_exists($storage)) {
-//             mkdir($storage, 0755, true);
-//         }
-//         $tmp = $storage . '/' . $fileName;
-//         if( copy($url, $tmp) ) {
-//             echo "SUCCESS!";
 //         }
 //     }
-   
-// }   
 
-if( isset($_GET['runquery']) && $_GET['runquery']='yes' ) {
-    // $perpage = $_GET['perpage'];
-    // $paged = $_GET['page'];
-    // $url = 'https://loavesandfishes.org/wp-json/wp/v2/posts/?per_page='.$perpage.'&page='.$paged;
-    $url = 'https://loavesandfishes.org/wp-json/wp/v2/posts/?per_page=100&page=4';
-    //https://loavesandfishes.org/wp-json/wp/v2/posts/?per_page=100
-    $json = file_get_contents($url);
-    if($json) {
-        $obj = json_decode($json);
-        $extractedImages = array();
-        $entries = array();
-        $entries_test = array();
+//     $res['count'] = ($posts) ? count($posts) : 0;
+//     $res['posts'] = $posts;
 
-        $upload =  wp_upload_dir();
-        $upload_abspath = $upload['basedir'];
-        $upload_url = $upload['baseurl'];
-        $temp_folder = $upload_abspath . '/allposts/'; 
+//     $response = new WP_REST_Response($extractedImages);
+//     $response->set_status(200);
 
-
-        if( $json ) {
-            $items = json_decode($json);
-            foreach($items as $item) {
-                $content = $item->content;
-                $rendered = $content->rendered;
-                preg_match_all('~<img.*?src=["\']+(.*?)["\']+~', $rendered, $urls);
-                // $extractedImages[] = $urls[1];
-                foreach($urls[1] as $img) {
-                    $extractedImages[] = $img;
-                }
-                $guid = $item->guide;
-                $arg = array(
-                    'ID'=> $item->id,
-                    'post_date'=>$item->date,
-                    'post_date_gmt'=>$item->date_gmt,
-                    'post_title'=>$item->title,
-                    'post_content'=>$rendered,
-                    'post_excerpt'=>$item->excerpt,
-                    'post_author'=>$item->author,
-                    'post_modified'=>$item->modified,
-                    'post_modified_gmt'=>$item->modified_gmt,
-                    'post_type'=>$item->type,
-                    'post_status'=>$item->status,
-                    'post_name '=>$item->slug,
-                    'guid'=>$item->guid,
-                );
-                $entries[] = $arg;
-                $entries_test[] = $item->title;
-                
-            }
-
-            
-        }
-
-
-        // if( $entries ) {
-        //     $content = json_encode($entries);
-        //     $dirPath = $temp_folder . 'posts.json';
-        //     $fp = fopen($dirPath, "a");
-        //     fwrite($fp, $content);
-        //     fclose($fp);
-        // }
-
-        //Extract Images
-    // if($extractedImages) {
-    //     foreach($extractedImages as $imgUrl) {
-    //         copyImage($imgUrl);
-    //     }
-    // }
-    }
-
-    
-}
-
-
-
-function copyImage($url) {
-    $upload =  wp_upload_dir();
-    $upload_abspath = $upload['basedir'];
-    $upload_url = $upload['baseurl'];
-    $temp_folder = $upload_abspath . '/allposts/'; 
-    if (!file_exists($temp_folder)) {
-        mkdir($temp_folder, 0755, true);
-    }
-
-    $fileName = basename($url);
-    $parts = explode('wp-content/uploads/', $url);
-    if($parts && count($parts)>1) {
-        $path = $parts[1];
-        $folders = str_replace('/'.$fileName,'', $path);
-        $storage = $temp_folder . $folders;
-        if (!file_exists($storage)) {
-            mkdir($storage, 0755, true);
-        }
-        $tmp = $storage . '/' . $fileName;
-        if( copy($url, $tmp) ) {
-            return true;
-        }
-    }
-}
-
-
-
-// function get_events_list() {
-// 	global $wpdb;
-// 	$now = WP_CURRENT_TIME;
-// 	$query = "SELECT p.* FROM ".$wpdb->prefix."posts p WHERE p.post_type='events' AND p.post_status='publish'";
+//     return $response;
 // }
-
-
-add_action('wp_footer', 'bellaworks_script_footer'); 
-function bellaworks_script_footer() { 
-  get_template_part('parts/content-popup');
-}
 
 
 function bella_acf_input_admin_footer() { ?>

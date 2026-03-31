@@ -12,19 +12,22 @@
  * @package bellaworks
  */
 get_header(); 
+$repeatable_blocks = get_field('repeatable_blocks');
 ?>
 
 <div id="primary" class="content-area-full generic-layout">
 	<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
-      <?php if(!has_post_thumbnail()) { ?>
-      <h1 class="page-title"><span><?php the_title(); ?></span></h1>
+
+      <?php if ($repeatable_blocks) { ?>
+        <?php include( locate_template('repeatable-blocks.php') ); ?>
+      <?php } else { ?>
+        <h1 class="page-title"><span><?php the_title(); ?></span></h1>
+        <div class="entry-content">
+          <?php the_content(); ?>
+        </div>  
       <?php } ?>
-			
-      <div class="entry-content">
-        <?php the_content(); ?>
-      </div>  
 
 		<?php endwhile; ?>
 

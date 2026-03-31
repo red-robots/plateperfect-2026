@@ -1378,7 +1378,44 @@ h6{font-size:28px}
 .site-header .head-action-btn span{display:inline-block;position:relative;z-index:5;-webkit-transition:all ease .3s;transition:all ease .3s}
 .site-header .head-action-btn:hover:after,.site-header .head-action-btn:focus:after{width:100%}
 .site-header .head-action-btn:hover span,.site-header .head-action-btn:focus span{color:#fff}
+.header-tagline{font-size:18px;font-weight:500;line-height:1.3;letter-spacing:.03em;text-align:center;color:#8fa69b;margin-top:10px}
+.hero{height:700px}
+.hero .swiper-wrapper,.hero .swiper-slide,.hero .slideImage{height:100%}
+.hero .swiper-slide{position:relative;background-color:#7c7058;color:#fff}
+.hero .swiper-button-next:after,.hero .swiper-button-prev:after{font-size:30px;color:#fff}
+.hero .swiper-pagination{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:20px;gap:.2rem}
+.hero .swiper-pagination-bullet{width:12px;height:12px;border:1px solid #fff;opacity:1 !important;background:transparent}
+.hero .swiper-pagination-bullet.swiper-pagination-bullet-active{background:#fff}
+.hero .slideImage{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero .slideText{position:absolute;top:0;left:0;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;z-index:10;text-align:center}
+.hero .slideText .textWrap{position:absolute;bottom:0;left:0;width:100%;padding:0 30px 5vw}
+.hero .slideText .textWrap:before{content:"";display:block;width:100%;height:190%;position:absolute;left:0;bottom:0;background:-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.65)));background:linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.65) 100%)}
+.hero .slideText .textWrap .inner{position:relative;z-index:5;max-width:960px;width:100%;margin:0 auto}
+.hero .slideText .title{font-family:"Lexend",sans-serif;font-size:50px;font-weight:500;line-height:1.2;margin:0 0 10px}
+.hero .slideText .text,.hero .slideText .text p{font-size:20px;line-height:1.3}
+.hero .slideText .buttons{display:-webkit-box;display:-ms-flexbox;display:flex;gap:1rem;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:30px}
+.hero .slideText .buttons .button{display:inline-block;text-decoration:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:2px solid #f57f31;padding:5px 15px;border-radius:200px;min-width:160px;text-align:center;background-color:transparent;color:#fff;font-family:"Bitter",serif;font-size:16px;text-transform:uppercase;letter-spacing:.05em;overflow:hidden;position:relative;-webkit-transition:all ease .3s;transition:all ease .3s;z-index:2}
+.hero .slideText .buttons .button:hover,.hero .slideText .buttons .button:focus{outline:0;background:#f57f31}
+.partners{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:5vw;margin:30px 0 25px}
+.partners .partner{display:inline-block}
+.partners a{display:inline-block;text-decoration:none}
+.partners img{width:auto;height:40px}
+.repeatable-testimonial_carousel{background:#caa24d;padding-top:80px;padding-bottom:80px;position:relative}
+.repeatable-testimonial_carousel:before{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-image:url("assets/img/silverware-pattern.png");background-size:35px}
+.repeatable-testimonial_carousel .testimonial-swiper{position:relative;z-index:5}
+.repeatable-testimonial_carousel .testimonial-swiper .swiper-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{background:#f7f2f0;border-radius:10px;-webkit-box-shadow:0 5px 20px rgba(0,0,0,.25);box-shadow:0 5px 20px rgba(0,0,0,.25);padding:30px;min-height:200px;-webkit-transform:scale(0.75);transform:scale(0.75);-webkit-transition:-webkit-transform ease .5s;transition:-webkit-transform ease .5s;transition:transform ease .5s;transition:transform ease .5s,-webkit-transform ease .5s}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .wrap{text-align:center;color:#624d47}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .text{position:relative}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .text:before{content:"";display:block;width:50px;height:30px;margin:0 auto 30px;background-image:url("assets/img/testimonial-quote.svg");background-size:contain;background-position:center;background-repeat:no-repeat}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .text,.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .text p{font-family:"Bitter",serif;font-size:20px;font-style:italic;line-height:1.6}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item .author{font-family:"Bitter",serif;font-size:16px;line-height:1.3}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item.swiper-slide-active{-webkit-transform:scale(1.11);transform:scale(1.11);z-index:20}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item-3:not(.swiper-slide-next):not(.swiper-slide-active){visibility:hidden;pointer-events:none}
+.repeatable-testimonial_carousel .testimonial-swiper.is-changing .testimonial-item-3{visibility:visible !important;pointer-events:auto !important}
 @media(min-width:960px){.site-header .menu-toggle{left:50px}
+.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:50px 40px}
+}@media(min-width:1024px){.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:70px 50px}
 }@media(print),(prefers-reduced-motion:reduce){.animated{-webkit-animation-duration:1ms !important;animation-duration:1ms !important;-webkit-transition-duration:1ms !important;transition-duration:1ms !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important}
 }@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
 100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}

@@ -30,6 +30,10 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 </head>
 <body <?php body_class(); ?>>
   <div id="page" class="site">
+    <?php  
+      $tagline = get_field('tagline', 'option');
+      $restaurant_logos = get_field('restaurant_logos', 'option');
+    ?>
     <a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
     <header id="masthead" class="site-header">
         <span class="site-logo">
@@ -37,6 +41,9 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
             <?php the_custom_logo(); ?>
           <?php } else { ?>
             <a hef="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+          <?php } ?>
+          <?php if ($tagline) { ?>
+          <div class="header-tagline"><?php echo $tagline ?></div> 
           <?php } ?>
         </span>
 
@@ -56,5 +63,8 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
           <span>Express Catering</span>
         </a>
     </header>
+
+    <?php get_template_part('parts/partners'); ?>
+    <?php get_template_part('parts/hero'); ?>
 
     <div id="content" class="site-content">
