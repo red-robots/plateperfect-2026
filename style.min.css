@@ -1386,6 +1386,7 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .hero{height:700px}
 .hero .swiper-wrapper,.hero .swiper-slide,.hero .slideImage{height:100%}
 .hero .swiper-slide{position:relative;background-color:#7c7058;color:#fff}
+.hero .swiper-button-next,.hero .swiper-button-prev{display:none !important}
 .hero .swiper-button-next:after,.hero .swiper-button-prev:after{font-size:30px;color:#fff}
 .hero .swiper-pagination{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:20px;gap:.2rem}
 .hero .swiper-pagination-bullet{width:12px;height:12px;border:1px solid #fff;opacity:1 !important;background:transparent}

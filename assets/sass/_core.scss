@@ -274,6 +274,10 @@ div.buttons {
     background-color: #7c7058;
     color: #FFF;
   }
+  .swiper-button-next, 
+  .swiper-button-prev {
+    display: none!important;
+  }
   .swiper-button-next:after, 
   .swiper-button-prev:after {
     font-size: 30px;
