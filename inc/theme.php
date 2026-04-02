@@ -22,7 +22,7 @@ function my_login_logo() {
   $logo_url = ($logoImg) ? $logoImg[0] : ''; ?>
   <style type="text/css">
     body.login {
-      background-color: #3d5588;
+      background-color: #F7F2F0;
     }
     <?php if($custom_logo_id) { ?>
     body.login div#login h1 a {
@@ -35,13 +35,13 @@ function my_login_logo() {
     <?php } ?>
     body.login #backtoblog a, 
     body.login #nav a {
-      color: #f1f1cb!important;
+      color: #5F2E14!important;
     }
     .login #backtoblog, .login #nav {
       text-align: center;
     }
     body.login .privacy-policy-link {
-      color: #ea885a;
+      color: #5F2E14;
     }
     body.login form {
       border-radius: 10px;
