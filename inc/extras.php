@@ -119,13 +119,13 @@ function format_phone_number($string) {
 }
 
 function get_social_media() {
-    $options = get_field("social_media_links","option");
+    $options = get_field("social_media","option");
     $icons = social_icons();
     $list = array();
     if($options) {
         foreach($options as $i=>$opt) {
-            if( isset($opt['link']) && $opt['link'] ) {
-                $url = $opt['link'];
+            if( isset($opt['url']) && $opt['url'] ) {
+                $url = $opt['url'];
                 $parts = parse_url($url);
                 $host = ( isset($parts['host']) && $parts['host'] ) ? $parts['host'] : '';
                 if($host) {

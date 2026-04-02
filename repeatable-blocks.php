@@ -1,7 +1,26 @@
-<?php if( have_rows('repeatable_blocks') ) { 
-  $i=1; while( have_rows('repeatable_blocks') ): the_row(); 
-    include( locate_template('parts-flexible/testimonial_carousel.php') );
-  $i++; endwhile;
+<?php 
+$dir = get_stylesheet_directory() . '/parts-flexible/';
+$partsFiles = [];
+if (is_dir($dir)) {
+  $files = scandir($dir);
+  foreach ($files as $file) {
+    // Filter out "." (current dir) and ".." (parent dir)
+    if ($file !== '.' && $file !== '..') {
+      if (!preg_match('/-copy| copy|-bak|-backup/i', strtolower($file))) {
+        $partsFiles[] = $file;
+      }
+    }
+  }
+}
+
+if( have_rows('repeatable_blocks') ) { 
+$i=1; while( have_rows('repeatable_blocks') ): the_row(); 
+  if($partsFiles) {
+    foreach($partsFiles as $file) {
+      include( locate_template('parts-flexible/'.$file) );
+    }
+  }
+$i++; endwhile;
 } ?>
 <script>
 jQuery(document).ready(function($){

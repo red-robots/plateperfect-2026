@@ -12,4 +12,11 @@
   height: auto;
 }
 
+.acf-field-group[data-name=icon_block] .acf-image-uploader .image-wrap img {
+  max-width: unset !important;
+  max-height: unset !important;
+  width: auto;
+  height: 90px;
+}
+
 /*# sourceMappingURL=admin.css.map */
