@@ -1,4 +1,4 @@
-<?php 
+<?php
 $dir = get_stylesheet_directory() . '/parts-flexible/';
 $partsFiles = [];
 if (is_dir($dir)) {
@@ -13,8 +13,8 @@ if (is_dir($dir)) {
   }
 }
 
-if( have_rows('repeatable_blocks') ) { 
-$i=1; while( have_rows('repeatable_blocks') ): the_row(); 
+if( have_rows('repeatable_blocks') ) {
+$i=1; while( have_rows('repeatable_blocks') ): the_row();
   if($partsFiles) {
     foreach($partsFiles as $file) {
       include( locate_template('parts-flexible/'.$file) );
@@ -31,11 +31,13 @@ jQuery(document).ready(function($){
       new Swiper(el, {
         // Essential for centering the main card
         centeredSlides: true,
-        slidesPerView: 1.1, 
+        slidesPerView: 1.1,
         spaceBetween: 0,
         loop: true,
         speed: 400,
         effect: 'slide',
+				grabCursor: true,
+				allowTouchMove: true,
         autoplay: {
           delay: 8000, // Time in ms between slides (3 seconds)
           disableOnInteraction: false, // Keeps sliding after user interacts
@@ -71,4 +73,45 @@ jQuery(document).ready(function($){
     });
   }
 });
+
+
+function handleResponsiveInfoBlock() {
+  const container = document.querySelector('.container'); // Replace with your actual parent class
+  const blocks = document.querySelectorAll('.infoBlock');
+  const groups = document.querySelectorAll('.infoGroup');
+  const isMobile = window.innerWidth <= 960;
+
+  if (isMobile && groups.length === 0) {
+    // --- WRAP LOGIC ---
+    for (let i = 0; i < blocks.length; i += 2) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'infoGroup';
+
+      // Insert wrapper before the first block of the pair
+      blocks[i].parentNode.insertBefore(wrapper, blocks[i]);
+
+      // Move the pair into the wrapper
+      wrapper.appendChild(blocks[i]);
+      if (blocks[i + 1]) {
+        wrapper.appendChild(blocks[i + 1]);
+      }
+    }
+  }
+  else if (!isMobile && groups.length > 0) {
+    // --- UNWRAP LOGIC ---
+    groups.forEach(group => {
+      // Move all children back to the main container before the group
+      while (group.firstChild) {
+        group.parentNode.insertBefore(group.firstChild, group);
+      }
+      // Remove the now-empty wrapper
+      group.remove();
+    });
+  }
+}
+
+// Run on load and on every resize
+window.addEventListener('resize', handleResponsiveInfoBlock);
+window.addEventListener('DOMContentLoaded', handleResponsiveInfoBlock);
+
 </script>

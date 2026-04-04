@@ -14,6 +14,8 @@ jQuery(document).ready(function($) {
         slidesPerView: 1,
         effect: 'fade',
         loop: true,
+				grabCursor: true,
+				allowTouchMove: true,
         autoplay: {
           delay: 5000, // Time in ms between slides (3 seconds)
           disableOnInteraction: false, // Keeps sliding after user interacts
@@ -31,8 +33,29 @@ jQuery(document).ready(function($) {
     });
   }
 
+	//OPEN menu toggle
+	$(document).on('click', '.menu-toggle', function(e){
+		e.preventDefault();
+		let isExpanded = $(this).attr('aria-expanded') === 'true';
+		$(this).attr('aria-expanded', !isExpanded);
+		let ariaControls = $(this).attr('aria-controls');
+		if( $(ariaControls).length ) {
+			$(ariaControls).addClass('open');
+		}
+	});
 
-}); 
+	//CLOSE menu toggle
+	$(document).on('click', '.closeMenuToggle', function(e){
+		e.preventDefault();
+		$('#primary-navigation').addClass('closed');
+		$('.menu-toggle').attr('aria-expanded','false');
+		setTimeout(function(){
+			$('#primary-navigation').removeClass('open closed');
+		},500);
+	});
+
+
+});
 
 
 

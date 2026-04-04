@@ -3,10 +3,10 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php if ( is_singular(array('post')) ) { 
+<?php if ( is_singular(array('post')) ) {
 global $post;
 $post_id = $post->ID;
-$thumbId = get_post_thumbnail_id($post_id); 
+$thumbId = get_post_thumbnail_id($post_id);
 $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <!-- SOCIAL MEDIA META TAGS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
@@ -30,7 +30,7 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 </head>
 <body <?php body_class(); ?>>
   <div id="page" class="site">
-    <?php  
+    <?php
       $tagline = get_field('tagline', 'option');
       $restaurant_logos = get_field('restaurant_logos', 'option');
     ?>
@@ -43,17 +43,18 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
             <a hef="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
           <?php } ?>
           <?php if ($tagline) { ?>
-          <div class="header-tagline"><?php echo $tagline ?></div> 
+          <div class="header-tagline"><?php echo $tagline ?></div>
           <?php } ?>
         </span>
 
-         
+
         <button class="menu-toggle" aria-expanded="false" aria-controls="#primary-navigation">
           <span class="sr">Menu Toggle</span>
           <span class="bar"><span></span></span>
         </button>
 
         <div id="primary-navigation" class="primary-navigation">
+					<button class="closeMenuToggle"><span class="sr-only">Close Menu</span></button>
           <nav id="site-navigation" class="main-navigation" role="navigation">
             <?php  wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu','container_class'=>false, 'link_before'=>'<span>','link_after'=>'</span><i aria-hidden="true"></i>') ); ?>
           </nav>
