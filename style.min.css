@@ -1464,7 +1464,7 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-static_hero .heroText .wrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
 .repeatable-static_hero .heroText .circle{position:absolute;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);width:50vw;height:50vw;border-radius:100%;background-color:#caa24d;opacity:.96}
 .repeatable-static_hero .heroText .circle:before{content:"";display:block;position:absolute;top:50%;left:50%;width:96%;height:96%;border-radius:100%;border:2px solid #fff;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}
-.repeatable-static_hero .heroText h1{font-size:50px;font-weight:600;line-height:1.2;letter-spacing:.03em;text-transform:uppercase;margin:0;position:relative;z-index:5}
+.repeatable-static_hero .heroText h1{font-size:clamp(25px,8vw,50px);font-weight:600;line-height:1.2;letter-spacing:.03em;text-transform:uppercase;margin:0;position:relative;z-index:5}
 .repeatable-two_column_image_text_block_style1 .wrapper{max-width:1300px;width:100%;margin:0 auto;padding-top:80px;padding-bottom:80px;padding-left:50px;padding-right:50px}
 .repeatable-two_column_image_text_block_style1:not(#repeatable-two_column_image_text_block_style1--2) .wrapper{padding-top:0}
 .repeatable-two_column_image_text_block_style1 .flexwrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
@@ -1522,6 +1522,7 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .infoBlocks .infoBlock{width:50%}
 .infoBlocks .infoGroup{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .infoBlocks .infoGroup:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+.repeatable-static_hero .heroText .circle{width:80vw;height:80vw}
 .site-header{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .site-header .site-logo{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;padding:10px 20px 15px}
 .site-header .head-action-btn{padding:13px 23px 11px}

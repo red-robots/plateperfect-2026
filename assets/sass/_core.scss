@@ -874,9 +874,14 @@ div.buttons {
 				border: 2px solid #FFF;
 				transform: translateX(-50%) translateY(-50%);
 			}
+			@include max(960px) {
+				width: 80vw;
+				height: 80vw;
+			}
 		}
 		h1 {
-			font-size: 50px;
+			// font-size: 50px;
+			font-size: clamp(25px,8vw,50px);
 			font-weight: 600;
 			line-height: 1.2;
 			letter-spacing: 0.03em;
