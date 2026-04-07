@@ -60,9 +60,16 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
           </nav>
         </div>
 
-        <a href="#" class="head-action-btn">
-          <span>Express Catering</span>
+				<?php
+				$cateringLink = get_field('catering_button', 'option');
+				$btnTarget = (isset($cateringLink['target']) && $cateringLink['target']) ? $cateringLink['target'] : '_self';
+				$btnTitle = (isset($cateringLink['title']) && $cateringLink['title']) ? $cateringLink['title'] : '';
+				$btnLink = (isset($cateringLink['url']) && $cateringLink['url']) ? $cateringLink['url'] : '';
+				if($btnTitle && $btnLink) { ?>
+        <a href="<?php echo $btnLink?>" target="<?php echo $btnTarget?>" class="head-action-btn">
+          <span><?php echo $btnTitle?></span>
         </a>
+				<?php } ?>
     </header>
 
     <?php get_template_part('parts/partners'); ?>
