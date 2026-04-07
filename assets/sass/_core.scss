@@ -1048,6 +1048,14 @@ div.buttons {
 					}
 				}
 			}
+
+			&.image-right {
+				flex-direction: row-reverse;
+				.imageBlock {
+					left: unset;
+					right: 0;
+				}
+			}
 		}
 	}
 }

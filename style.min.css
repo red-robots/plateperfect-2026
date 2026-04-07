@@ -1509,6 +1509,8 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .imageBlock,.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock{width:50%}
 .repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding-left:30px;padding-right:30px}
 .repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock .inside{display:inline-block}
+.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock).image-right{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock).image-right .imageBlock{left:unset;right:0}
 }@media(min-width:960px)and (min-width:960px){.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock{padding-left:100px;padding-right:100px}
 }@media(min-width:960px)and (min-width:1024px){.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock .inside{width:25vw;margin:0 auto}
 }@media(min-width:1024px){.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:70px 50px}
