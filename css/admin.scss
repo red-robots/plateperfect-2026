@@ -22,3 +22,18 @@
     height: 90px;
   }
 }
+.acf-flexible-content {
+	[data-layout*="two_column_image_text"] {
+		.acf-fields:has([data-name="image_block"]):has([data-name="content"]) {
+			display: flex;
+			flex-wrap: wrap;
+			.acf-field-group[data-name="image_block"] {
+				width: 40%;
+			}
+			.acf-field-group[data-name="text_block"] {
+				width: 60%;
+			}
+		}
+	}
+
+}

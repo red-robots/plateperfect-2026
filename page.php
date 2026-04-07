@@ -11,10 +11,17 @@
  *
  * @package bellaworks
  */
-get_header(); 
+get_header();
 $repeatable_blocks = get_field('repeatable_blocks');
+$flexible_content_internal = get_field('flexible_content_internal');
 ?>
+<?php if($flexible_content_internal) { ?>
 
+  <div id="primary" class="content-area flexible-content-internal">
+    <?php include( locate_template('repeatable-blocks-internal.php') ); ?>
+  </div>
+
+<?php } else { ?>
 <div id="primary" class="content-area-full generic-layout">
 	<main id="main" class="site-main" role="main">
 
@@ -26,13 +33,14 @@ $repeatable_blocks = get_field('repeatable_blocks');
         <h1 class="page-title"><span><?php the_title(); ?></span></h1>
         <div class="entry-content">
           <?php the_content(); ?>
-        </div>  
+        </div>
       <?php } ?>
 
 		<?php endwhile; ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
+<?php } ?>
 
 <?php
 get_footer();
