@@ -30,4 +30,15 @@
   width: 60%;
 }
 
+[data-layout=grid_images]:has(.acf-field-repeater) [data-name=overlay_logo] .image-wrap img {
+  max-height: unset !important;
+  height: 50px !important;
+  width: auto !important;
+}
+[data-layout=grid_images]:has(.acf-field-repeater) [data-name=bg_image] .image-wrap img {
+  max-height: unset !important;
+  height: 80px !important;
+  width: auto !important;
+}
+
 /*# sourceMappingURL=admin.css.map */
