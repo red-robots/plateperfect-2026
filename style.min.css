@@ -1351,7 +1351,7 @@ html,body,*,::before,::after{box-sizing:border-box;-moz-box-sizing:border-box;-w
 a,input,button,textarea{-webkit-transition:all ease .3s;transition:all ease .3s}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;color:#fff;background:#000;display:inline-block}
 body{font-family:"Bitter",serif;line-height:1.7;letter-spacing:.02em;color:#3a2f2a;background:#f7f2f0}
-h1,h2,h3,h4,h5,h6{font-family:"Lexend",sans-serif;font-weight:bold;line-height:1.2}
+h1,h2,h3,h4,h5,h6{font-family:"Lexend",sans-serif;font-weight:300;line-height:1.2}
 h2{font-size:42px}
 h3{font-size:38px}
 h4{font-size:35px}
@@ -1361,6 +1361,9 @@ h6{font-size:28px}
 .skip-link{display:inline-block;text-decoration:none;padding:8px 15px;color:#fff;background:#000;border-radius:6px;position:absolute;top:-80vh;left:10px;-webkit-box-shadow:0 5px 16px rgba(0,0,0,.25);box-shadow:0 5px 16px rgba(0,0,0,.25);z-index:-999;opacity:0}
 .skip-link:focus{top:10px;z-index:9999;opacity:1}
 div.buttons{display:-webkit-box;display:-ms-flexbox;display:flex;gap:1rem;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:30px}
+div.buttons.align-left{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+div.buttons.align-right{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+div.buttons.align-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 div.buttons .button{display:inline-block;text-decoration:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:2px solid #f57f31;padding:5px 20px;border-radius:200px;min-width:120px;text-align:center;background-color:transparent;color:#f57f31;font-family:"Lexend",sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:.05em;overflow:hidden;position:relative;-webkit-transition:all ease .3s;transition:all ease .3s;z-index:2}
 div.buttons .button.btn-wide{padding:12px 15px;min-width:250px}
 div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31;color:#fff}
@@ -1497,6 +1500,8 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-grid_images .grid-images.numcol-3 .grid{width:33.333%}
 .repeatable-grid_images .grid-images.numcol-4 .grid{width:25%}
 .repeatable-grid_images .grid-images.numcol-5 .grid{width:20%}
+.repeatable-fullwidth_text_content .wrapper{padding:80px 30px 85px;max-width:1200px;width:100%;margin:0 auto}
+.repeatable-fullwidth_text_content h2,.repeatable-fullwidth_text_content h3{margin:0 0 20px}
 .site-footer{background:#caa24d;color:#5f2d12;padding:30px 30px;font-family:"Lexend",sans-serif;font-size:16px;line-height:1.4}
 .site-footer .top-info{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:2rem;font-size:16px;font-weight:300;line-height:1.5}
 .site-footer .footLogo a{display:inline-block}
