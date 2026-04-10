@@ -25,9 +25,9 @@
 							<?php } ?>
 							<div class="post-title-wrap">
 								<h3><?php the_title(); ?></h3>
-								<div class="post-date">
-									<?php echo get_the_date('n/j/y'); ?>
-								</div>
+								<!-- <div class="post-date">
+									<?php //echo get_the_date('n/j/y'); ?>
+								</div> -->
 							</div>
 						</a>
 					</div>
