@@ -1201,6 +1201,47 @@ div.buttons {
 	}
 }
 
+.repeatable-masonry_gallery {
+	padding: 80px 20px;
+	.wrapper {
+		max-width: 1300px;
+		width: 100%;
+		margin: 0 auto;
+		padding-left: 50px;
+		padding-right: 50px;
+		@include max(768px) {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+	.masonry-images {
+		display: flex;
+		flex-wrap: wrap;
+		.grid-sizer,
+		.masonry-item {
+			width: 25%;
+			padding: 5px;
+			border-radius: 0;
+			overflow: hidden;
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+			a {
+				display: block;
+				background: #FFF;
+			}
+			@include max(1024px) {
+				width: 33.333%;
+			}
+			@include max(768px) {
+				width: 50%;
+			}
+		}
+	}
+}
+
 
 
 

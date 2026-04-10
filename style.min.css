@@ -1502,6 +1502,12 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-grid_images .grid-images.numcol-5 .grid{width:20%}
 .repeatable-fullwidth_text_content .wrapper{padding:80px 30px 85px;max-width:1200px;width:100%;margin:0 auto}
 .repeatable-fullwidth_text_content h2,.repeatable-fullwidth_text_content h3{margin:0 0 20px}
+.repeatable-masonry_gallery{padding:80px 20px}
+.repeatable-masonry_gallery .wrapper{max-width:1300px;width:100%;margin:0 auto;padding-left:50px;padding-right:50px}
+.repeatable-masonry_gallery .masonry-images{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.repeatable-masonry_gallery .masonry-images .grid-sizer,.repeatable-masonry_gallery .masonry-images .masonry-item{width:25%;padding:5px;border-radius:0;overflow:hidden}
+.repeatable-masonry_gallery .masonry-images .grid-sizer img,.repeatable-masonry_gallery .masonry-images .masonry-item img{display:block;width:100%;height:auto}
+.repeatable-masonry_gallery .masonry-images .grid-sizer a,.repeatable-masonry_gallery .masonry-images .masonry-item a{display:block;background:#fff}
 .site-footer{background:#caa24d;color:#5f2d12;padding:30px 30px;font-family:"Lexend",sans-serif;font-size:16px;line-height:1.4}
 .site-footer .top-info{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:2rem;font-size:16px;font-weight:300;line-height:1.5}
 .site-footer .footLogo a{display:inline-block}
@@ -1535,6 +1541,7 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 }@media(min-width:960px)and (min-width:1024px){.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock .inside{width:25vw;margin:0 auto}
 }@media(min-width:1024px){.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:70px 50px}
 }@media screen and (max-width:1250px){.partners{gap:2rem}
+}@media screen and (max-width:1024px){.repeatable-masonry_gallery .masonry-images .grid-sizer,.repeatable-masonry_gallery .masonry-images .masonry-item{width:33.333%}
 }@media screen and (max-width:960px){.repeatable-testimonial_carousel{padding-left:10vw;padding-right:10vw}
 .infoBlocks .infoBlock{width:50%}
 .infoBlocks .infoGroup{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
@@ -1554,6 +1561,8 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-testimonial_carousel .testimonial-button-next,.repeatable-testimonial_carousel .testimonial-button-prev{display:none !important}
 .repeatable-testimonial_carousel .testimonial-swiper .testimonial-item.swiper-slide-active{-webkit-transform:scale(1) !important;transform:scale(1) !important}
 .repeatable-two_column_image_text_block_style1 .wrapper{padding-left:30px;padding-right:30px}
+.repeatable-masonry_gallery .wrapper{padding-left:30px;padding-right:30px}
+.repeatable-masonry_gallery .masonry-images .grid-sizer,.repeatable-masonry_gallery .masonry-images .masonry-item{width:50%}
 }@media screen and (max-width:480px){.infoBlocks .infoBlock{width:100%}
 .infoBlocks .infoBlock .inside{min-height:250px}
 .infoBlocks .infoGroup{-webkit-box-orient:horizontal !important;-webkit-box-direction:normal !important;-ms-flex-direction:row !important;flex-direction:row !important}

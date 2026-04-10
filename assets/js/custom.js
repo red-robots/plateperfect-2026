@@ -74,6 +74,43 @@
  *  Date Modified: 03.31.2026
  */
 jQuery(document).ready(function ($) {
+  if ($('.popup-image').length) {
+    $('.popup-image').fancybox({
+      //buttons : ['close','thumbs','fullScreen'],
+      buttons: ['fullScreen', 'close'],
+      protect: true,
+      loop: false,
+      hash: false,
+      animationEffect: 'fade'
+    });
+  } // $('.grid').masonry({
+  // 	itemSelector: '.grid-item',
+  // 	columnWidth: 200
+  // });
+  // init Masonry
+  // var $grid = $('.grid').masonry({
+  // 	itemSelector: '.grid-item',
+  // 	percentPosition: true,
+  // 	columnWidth: '.grid-sizer'
+  // });
+  // // layout Masonry after each image loads
+  // $grid.imagesLoaded().progress( function() {
+  // 	$grid.masonry();
+  // });
+  // Select the grid element
+
+
+  var grid = document.querySelector('.masonry-images'); // Initialize Masonry ONLY after images have loaded
+
+  imagesLoaded(grid, function () {
+    var msnry = new Masonry(grid, {
+      itemSelector: '.masonry-item',
+      columnWidth: '.masonry-item',
+      percentPosition: true,
+      gutter: 0 // Space between items
+
+    });
+  });
   var swiperElements = document.querySelectorAll('.swiper');
 
   if (swiperElements.length) {

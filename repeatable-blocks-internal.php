@@ -1,18 +1,5 @@
 <?php
-$dir = get_stylesheet_directory() . '/parts-flexible/';
-$partsFiles = [];
-if (is_dir($dir)) {
-  $files = scandir($dir);
-  foreach ($files as $file) {
-    // Filter out "." (current dir) and ".." (parent dir)
-    if ($file !== '.' && $file !== '..') {
-      if (!preg_match('/-copy| copy|-bak|-backup/i', strtolower($file))) {
-        $partsFiles[] = $file;
-      }
-    }
-  }
-}
-
+$partsFiles = get_flexible_parts();
 if( have_rows('flexible_content_internal') ) {
 $i=1; while( have_rows('flexible_content_internal') ): the_row();
   if($partsFiles) {

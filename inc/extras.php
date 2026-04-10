@@ -98,7 +98,7 @@ function get_page_id_by_template($fileName) {
 
 function string_cleaner($str) {
     if($str) {
-        $str = str_replace(' ', '', $str); 
+        $str = str_replace(' ', '', $str);
         $str = preg_replace('/\s+/', '', $str);
         $str = preg_replace('/[^A-Za-z0-9\-]/', '', $str);
         $str = strtolower($str);
@@ -163,7 +163,7 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
         return false;
     }
 
-    //$home_url = parse_url( $_SERVER['HTTP_HOST'] );     
+    //$home_url = parse_url( $_SERVER['HTTP_HOST'] );
     $home_url = parse_url( home_url() );  // Works for WordPress
 
     $target = '_self';
@@ -190,7 +190,7 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
                 $target = '_blank';
                 $class = $external_class;
             }
-        } 
+        }
     }
 
     // Return array
@@ -256,7 +256,7 @@ function myplugin_register_buttons( $buttons ) {
 
 	return $buttons;
 }
- 
+
 // Load the TinyMCE plugin : editor_plugin.js (wp2.5)
 add_filter( 'mce_external_plugins', 'myplugin_register_tinymce_javascript' );
 
@@ -282,7 +282,7 @@ function myplugin_register_tinymce_javascript( $plugin_array ) {
 //         'order'           => 'desc',
 //         'post_status'     => 'publish'
 //     );
-    
+
 //     if (empty($postType)) {
 //     return new WP_Error( 'post_type', 'No post type indicated', array('status' => 404) );
 //     }
@@ -327,7 +327,7 @@ function bella_acf_input_admin_footer() { ?>
     args.palettes = ['#3D5588','#F26522','#81C674','#FEBC11','#FAF1DB','#32845C','#00B2CD']
     return args;
   });
-})(jQuery); 
+})(jQuery);
 </script>
 <?php
 }
@@ -342,6 +342,22 @@ function display_form_button_on_specific_page( $display_add_form_button ) {
   return $display_add_form_button;
 }
 
+function get_flexible_parts() {
+	$dir = get_stylesheet_directory() . '/parts-flexible/';
+	$partsFiles = [];
+	if (is_dir($dir)) {
+		$files = scandir($dir);
+		foreach ($files as $file) {
+			$pathinfo = pathinfo($file);
+			if( isset($pathinfo['extension']) && strtolower($pathinfo['extension']) =='php' ) {
+				if (!preg_match('/-copy| copy|-bak|-backup/i', strtolower($file))) {
+					$partsFiles[] = $file;
+				}
+			}
+		}
+	}
+	return $partsFiles;
+}
 
 
 
