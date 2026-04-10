@@ -1518,7 +1518,7 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .news-feeds-container .news-feeds .post-title-wrap h3{margin:0;font-size:25px;font-weight:300;line-height:1.3;color:#3a2f2a;-webkit-transition:all ease .3s;transition:all ease .3s}
 .news-feeds-container .news-feeds .post-title-wrap .post-date{font-size:20px;color:#f57f31;-webkit-transition:all ease .3s;transition:all ease .3s}
 .news-feeds-container .news-feeds a.inside:hover,.news-feeds-container .news-feeds a.inside:focus{background:#fff;-webkit-box-shadow:0 0 20px rgba(0,0,0,.12);box-shadow:0 0 20px rgba(0,0,0,.12)}
-.news-feeds-container .pagination-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:1rem}
+.news-feeds-container .pagination-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:1rem;margin-top:30px}
 .news-feeds-container .pagination-wrapper .page-numbers{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:16px;min-width:35px;min-height:35px;text-align:center;text-decoration:none;border:1px solid #caa24d;color:#5f2e14}
 .news-feeds-container .pagination-wrapper .page-numbers.current{border-color:#a09d98;color:#83807b;opacity:.4}
 .news-feeds-container .pagination-wrapper a:hover,.news-feeds-container .pagination-wrapper a:focus{background:#f7e4bc}
@@ -1577,6 +1577,7 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-two_column_image_text_block_style1 .wrapper{padding-left:30px;padding-right:30px}
 .repeatable-masonry_gallery .wrapper{padding-left:30px;padding-right:30px}
 .repeatable-masonry_gallery .masonry-images .grid-sizer,.repeatable-masonry_gallery .masonry-images .masonry-item{width:50%}
+.news-feeds-container .news-feeds .news-item{width:100%}
 }@media screen and (max-width:480px){.infoBlocks .infoBlock{width:100%}
 .infoBlocks .infoBlock .inside{min-height:250px}
 .infoBlocks .infoGroup{-webkit-box-orient:horizontal !important;-webkit-box-direction:normal !important;-ms-flex-direction:row !important;flex-direction:row !important}

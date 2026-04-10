@@ -1253,6 +1253,9 @@ div.buttons {
 		.news-item {
 			width: 50%;
 			padding: 25px;
+			@include max(768px) {
+				width: 100%;
+			}
 		}
 		a.inside {
 			display: block;
@@ -1300,6 +1303,7 @@ div.buttons {
 		align-items: center;
 		justify-content: center;
 		gap: 1rem;
+		margin-top: 30px;
 		.page-numbers {
 			display: inline-flex;
 			align-items: center;
