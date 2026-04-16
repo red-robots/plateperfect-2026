@@ -7,11 +7,11 @@
  * @package bellaworks
  */
 
-$title = get_field("title404","option");
-$content = get_field("content404","option");
+// $title = get_field("title404","option");
+// $content = get_field("content404","option");
 get_header(); ?>
 
-<div id="primary" class="content-area default-template page404">
+<div id="primary" class="content-area page-default-template page404">
   <main id="main" class="site-main wrapper">
 
     <header class="entry-title">
