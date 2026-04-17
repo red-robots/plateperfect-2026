@@ -225,9 +225,9 @@ div.buttons {
 		z-index: 300;
 		transition: all ease .3s;
 		pointer-events: none;
-		// @include max(768px) {
-		// 	top: 120px;
-		// }
+		@include max(768px) {
+			top: 180px;
+		}
 		ul.menu {
 			margin: 0 0;
 			padding: 30px;
@@ -381,6 +381,9 @@ div.buttons {
   }
 
 	@include max(768px) {
+		.menu-toggle[aria-expanded=true] {
+			opacity: .2!important;
+		}
 		&:has(.primary-navigation.open) {
 			.menu-toggle, .head-action-btn {
 				pointer-events: none!important;
