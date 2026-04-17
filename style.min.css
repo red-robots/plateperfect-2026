@@ -1464,8 +1464,8 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .flexible-content-internal{min-height:40em}
 .repeatable-static_hero{min-height:350px;background-color:#5f2d12;color:#fff;position:relative;overflow:hidden}
 .repeatable-static_hero .bgImage{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
-.repeatable-static_hero .heroText{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.repeatable-static_hero .heroText .wrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
+.repeatable-static_hero .heroText{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center}
+.repeatable-static_hero .heroText .wrap{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding-left:40px;padding-right:40px;margin:0 auto}
 .repeatable-static_hero .heroText .circle{position:absolute;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);width:50vw;height:50vw;border-radius:100%;background-color:#caa24d;opacity:.96}
 .repeatable-static_hero .heroText .circle:before{content:"";display:block;position:absolute;top:50%;left:50%;width:96%;height:96%;border-radius:100%;border:2px solid #fff;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}
 .repeatable-static_hero .heroText h1{font-size:clamp(25px,8vw,50px);font-weight:600;line-height:1.2;letter-spacing:.03em;text-transform:uppercase;margin:0;position:relative;z-index:5}
@@ -1584,12 +1584,15 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 }@media(min-width:960px)and (min-width:1024px){.repeatable-two_column_image_text_block_style2 .flexwrap:has(.imageBlock):has(.textBlock) .textBlock .inside{width:25vw;margin:0 auto}
 }@media(min-width:1024px){.repeatable-testimonial_carousel .testimonial-swiper .testimonial-item{padding:70px 50px}
 .repeatable-callout_section{padding-top:80px;padding-bottom:80px}
+}@media screen and (max-width:1360px){.repeatable-static_hero .heroText .circle{width:65vw;height:65vw}
 }@media screen and (max-width:1250px){.partners{gap:2rem}
+.repeatable-static_hero .heroText .wrap{width:50vw}
 }@media screen and (max-width:1024px){.repeatable-masonry_gallery .masonry-images .grid-sizer,.repeatable-masonry_gallery .masonry-images .masonry-item{width:33.333%}
 }@media screen and (max-width:960px){.repeatable-testimonial_carousel{padding-left:10vw;padding-right:10vw}
 .infoBlocks .infoBlock{width:50%}
 .infoBlocks .infoGroup{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .infoBlocks .infoGroup:nth-child(even){-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+.repeatable-static_hero .heroText .wrap{width:80vw}
 .repeatable-static_hero .heroText .circle{width:80vw;height:80vw}
 .repeatable-grid_images .grid-images .grid{width:50% !important}
 .site-header{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
@@ -1612,6 +1615,8 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .repeatable-masonry_gallery .wrapper{padding-left:30px;padding-right:30px}
 .repeatable-masonry_gallery .masonry-images .grid-sizer,.repeatable-masonry_gallery .masonry-images .masonry-item{width:50%}
 .news-feeds-container .news-feeds .news-item{width:100%}
+}@media screen and (max-width:500px){.repeatable-static_hero{min-height:250px}
+.repeatable-static_hero .heroText .circle{width:100vw;height:100vw}
 }@media screen and (max-width:480px){.infoBlocks .infoBlock{width:100%}
 .infoBlocks .infoBlock .inside{min-height:250px}
 .infoBlocks .infoGroup{-webkit-box-orient:horizontal !important;-webkit-box-direction:normal !important;-ms-flex-direction:row !important;flex-direction:row !important}

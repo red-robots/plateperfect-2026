@@ -861,6 +861,9 @@ div.buttons {
 	color: #FFF;
 	position: relative;
 	overflow: hidden;
+	@include max(500px) {
+		min-height: 250px;
+	}
 	.bgImage {
 		position: absolute;
 		top: 0;
@@ -882,8 +885,20 @@ div.buttons {
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
+		text-align: center;
 		.wrap {
 			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding-left: 40px;
+			padding-right: 40px;
+			margin: 0 auto;
+			@include max(1250px) {
+				width: 50vw;
+			}
+			@include max(960px) {
+				width: 80vw;
+			}
 		}
 		.circle {
 			position: absolute;
@@ -895,6 +910,10 @@ div.buttons {
 			border-radius: 100%;
 			background-color: $gold;
 			opacity: 0.96;
+			@include max(1360px) {
+				width: 65vw;
+				height: 65vw;
+			}
 			&:before {
 				content:"";
 				display: block;
@@ -910,6 +929,10 @@ div.buttons {
 			@include max(960px) {
 				width: 80vw;
 				height: 80vw;
+			}
+			@include max(500px) {
+				width: 100vw;
+				height: 100vw;
 			}
 		}
 		h1 {
