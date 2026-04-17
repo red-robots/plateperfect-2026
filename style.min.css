@@ -1556,6 +1556,8 @@ div.buttons .button:hover,div.buttons .button:focus{outline:0;background:#f57f31
 .page404 .innerText{text-align:center}
 .sitemap-links{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .sitemap-links ul{display:block;text-align:left;-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-gap:5rem;-moz-column-gap:5rem;column-gap:5rem}
+.gform_wrapper .gform_button.button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:#5f2d12 !important;color:#fff;min-width:115px !important;text-align:center !important;font-family:"Lexend",sans-serif !important;font-size:16px !important;font-weight:400 !important;letter-spacing:.03em !important;text-transform:uppercase !important;padding:10px 20px;border-radius:5px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.gform_wrapper .gform_button.button:hover,.gform_wrapper .gform_button.button:focus{background:#caa24d !important}
 .site-footer{background:#caa24d;color:#5f2d12;padding:30px 30px;font-family:"Lexend",sans-serif;font-size:16px;line-height:1.4}
 .site-footer .top-info{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:2rem;font-size:16px;font-weight:300;line-height:1.5}
 .site-footer .footLogo a{display:inline-block}
