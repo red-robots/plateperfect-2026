@@ -1428,15 +1428,16 @@ div.buttons {
 	.innerText {
 		text-align: center;
 	}
-	.sitemap-links {
-		display: flex;
-		justify-content: center;
-		ul {
-			display: block;
-			text-align: left;
-			column-count: 2;
-			column-gap: 5rem;
-		}
+}
+
+.sitemap-links {
+	display: flex;
+	justify-content: center;
+	ul {
+		display: block;
+		text-align: left;
+		column-count: 2;
+		column-gap: 5rem;
 	}
 }
 

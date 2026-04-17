@@ -3,12 +3,9 @@
  * Template Name: Sitemap
  */
 
-$placeholder = THEMEURI . 'images/rectangle.png';
-$banner = get_field("banner");
-$has_banner = ($banner) ? 'hasbanner':'nobanner';
 get_header(); ?>
 
-<div id="primary" class="content-area-full maxwidth-template <?php echo $has_banner ?>">
+<div id="primary" class="content-area page-default-template content-sitemap">
   <main id="main" class="site-main wrapper-small" role="main">
     <?php while ( have_posts() ) : the_post(); ?>
       
