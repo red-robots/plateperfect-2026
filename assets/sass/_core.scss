@@ -223,10 +223,11 @@ div.buttons {
 		animation-duration: .5s;
 		animation-fill-mode: both;
 		z-index: 300;
+		transition: all ease .3s;
 		pointer-events: none;
-		@include max(768px) {
-			top: 120px;
-		}
+		// @include max(768px) {
+		// 	top: 120px;
+		// }
 		ul.menu {
 			margin: 0 0;
 			padding: 30px;
@@ -313,6 +314,7 @@ div.buttons {
 		&.open {
 			animation-name: slideInLeft;
 			animation-delay: 0.5s;
+			transition-delay: 0.5s;
 		}
 		&.closed {
 			animation-name: slideOutLeft;
@@ -377,6 +379,14 @@ div.buttons {
       }
     }
   }
+
+	@include max(768px) {
+		&:has(.primary-navigation.open) {
+			.menu-toggle, .head-action-btn {
+				pointer-events: none!important;
+			}
+		}
+	}
 }
 
 
