@@ -556,6 +556,21 @@ div.buttons {
 	}
 }
 
+.repeatable table a,
+.repeatable li a,
+.repeatable p a {
+	display: inline-block;
+	color: $primary;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	transition: all ease .3s;
+	&:hover, &:focus {
+		color: $secondary;
+		transform: translateY(-2px);
+	}
+}
+
 .repeatable-testimonial_carousel {
   background: $gold;
   padding-top: 90px;
