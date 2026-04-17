@@ -565,6 +565,9 @@ div.buttons {
 	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
 	transition: all ease .3s;
+	&.noline {
+		text-decoration: none!important;
+	}
 	&:hover, &:focus {
 		color: $secondary;
 		transform: translateY(-2px);
