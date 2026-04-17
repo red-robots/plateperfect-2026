@@ -74,7 +74,8 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 				<?php } ?>
     </header>
 
-    <?php get_template_part('parts/partners'); ?>
-    <?php get_template_part('parts/hero'); ?>
-
+		<?php if( is_front_page() || is_home() ) { ?>
+		<div class="top--partners"><?php get_template_part('parts/partners'); ?></div>
+		<?php } ?>
+		 <?php get_template_part('parts/hero'); ?>
     <div id="content" class="site-content">

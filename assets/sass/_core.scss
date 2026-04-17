@@ -1522,6 +1522,16 @@ div.buttons {
 	}
 }
 
+body:not(.home) {
+	.site-header {
+		padding-bottom: 25px;
+	}
+	&:has(.top--partners) .site-header {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
 //SITE FOOTER
 .site-footer {
   background: #CAA24D;
