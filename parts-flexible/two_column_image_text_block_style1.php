@@ -1,4 +1,8 @@
 <?php if( get_row_layout() == 'two_column_image_text_block_style1' ) {
+  $spacing = get_sub_field('topbottom_spacing');
+  $sp_top = (isset($spacing['remove_top_spacing']) && $spacing['remove_top_spacing']) ? true : false;
+  $sp_bottom = (isset($spacing['remove_bottom_spacing']) && $spacing['remove_bottom_spacing']) ? true : false;
+
   $img = get_sub_field('image_block');
   $text = get_sub_field('text_block');
 	$imageUrl = (isset($img['image']) && $img['image']) ? $img['image']['url'] : '';
@@ -7,8 +11,16 @@
 	$textContent = (isset($text['content']) && $text['content']) ? $text['content'] : '';
 	$buttons = (isset($text['buttons']) && $text['buttons']) ? $text['buttons'] : '';
 
+  $spacingClass = '';
+  if($sp_top) {
+    $spacingClass .= ' nopaddingTop';
+  }
+  if($sp_bottom) {
+    $spacingClass .= ' nopaddingBottom';
+  }
+
   if($imageUrl || $textContent) { ?>
-  <div data-group="<?php echo get_row_layout() ?>" id="repeatable-<?php echo get_row_layout() ?>--<?php echo $i ?>" class="repeatable repeatable-<?php echo get_row_layout() ?>">
+  <div data-group="<?php echo get_row_layout() ?>" id="repeatable-<?php echo get_row_layout() ?>--<?php echo $i ?>" class="repeatable repeatable-<?php echo get_row_layout() ?><?php echo $spacingClass ?>">
 		<div class="wrapper">
 			<div class="flexwrap image-<?php echo $imagePosition?>">
 				<?php if ($imageUrl) { ?>

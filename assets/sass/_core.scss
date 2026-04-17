@@ -949,12 +949,12 @@ div.buttons {
 	}
 }
 .repeatable-two_column_image_text_block_style1 {
+	padding-top: 80px;
+	padding-bottom: 80px;
 	.wrapper {
 		max-width: 1300px;
 		width: 100%;
 		margin: 0 auto;
-		padding-top: 80px;
-		padding-bottom: 80px;
 		padding-left: 50px;
 		padding-right: 50px;
 		@include max(768px) {
@@ -962,12 +962,12 @@ div.buttons {
 			padding-right: 30px;
 		}
 	}
-	&#repeatable-two_column_image_text_block_style1--2 .wrapper {
+	&#repeatable-two_column_image_text_block_style1--2 {
 		@include tab {
 			padding-top: 100px;
 		}
 	}
-	&:not(#repeatable-two_column_image_text_block_style1--2) .wrapper {
+	&:not(#repeatable-two_column_image_text_block_style1--2) {
 		padding-top: 0;
 	}
 	.flexwrap {
@@ -1047,6 +1047,13 @@ div.buttons {
 				}
 			}
 		}
+	}
+
+	&.nopaddingTop {
+		padding-top: 0!important;
+	}
+	&.nopaddingBottom {
+		padding-bottom: 0!important;
 	}
 }
 .repeatable-two_column_image_text_block_style2 {
@@ -1146,6 +1153,12 @@ div.buttons {
 				}
 			}
 		}
+	}
+	&.nopaddingTop {
+		padding-top: 0!important;
+	}
+	&.nopaddingBottom {
+		padding-bottom: 0!important;
 	}
 }
 

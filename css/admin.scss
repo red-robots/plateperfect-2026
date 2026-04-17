@@ -48,3 +48,26 @@
 		width: auto!important;
 	}
 }
+.acf-field-group[data-name="topbottom_spacing"] {
+	width: 100%;
+	.acf-fields {
+		display: flex;
+		.acf-field-true-false {
+			position: relative;
+			.acf-label {
+				margin: 0 0!important;
+				padding-left: 25px;
+			}
+			.acf-input {
+				display: inline-block;
+				position: absolute;
+				top: 15px;
+    		left: 18px;
+				z-index: 2;
+			}
+		}
+		[data-name="remove_bottom_spacing"] {
+			border-top: none!important;
+		}
+	}
+}
