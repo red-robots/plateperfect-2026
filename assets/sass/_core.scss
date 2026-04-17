@@ -314,7 +314,6 @@ div.buttons {
 		&.open {
 			animation-name: slideInLeft;
 			animation-delay: 0.5s;
-			transition-delay: 0.5s;
 		}
 		&.closed {
 			animation-name: slideOutLeft;
