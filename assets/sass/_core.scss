@@ -316,6 +316,7 @@ div.buttons {
 			animation-delay: 0.5s;
 		}
 		&.closed {
+			left: -100vw;
 			animation-name: slideOutLeft;
 		}
   }

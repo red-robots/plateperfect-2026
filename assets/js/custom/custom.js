@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
 		$('.menu-toggle').attr('aria-expanded','false');
 		setTimeout(function(){
 			$('#primary-navigation').removeClass('open closed');
-		},500);
+		},800);
 	});
 
 
