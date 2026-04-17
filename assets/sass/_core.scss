@@ -212,7 +212,7 @@ div.buttons {
 		display: none;
     position: absolute;
     top: 50px;
-    left: 0;
+    left: -100vw;
     width: 290px;
 		border-top-right-radius: 10px;
 		border-bottom-right-radius: 10px;
@@ -220,6 +220,7 @@ div.buttons {
 		animation-duration: .5s;
 		animation-fill-mode: both;
 		z-index: 300;
+		pointer-events: none;
 		ul.menu {
 			margin: 0 0;
 			padding: 30px;
@@ -298,12 +299,15 @@ div.buttons {
 			}
 		}
 
-		&.open {
+		&.open, &.closed {
 			display: block;
+			left: 0;
+			pointer-events: auto;
+		}
+		&.open {
 			animation-name: slideInLeft;
 		}
 		&.closed {
-			display: block;
 			animation-name: slideOutLeft;
 		}
   }
