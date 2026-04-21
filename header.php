@@ -44,8 +44,10 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
           <?php } else { ?>
             <a hef="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
           <?php } ?>
-          <?php if ($tagline) { ?>
-          <div class="header-tagline"><?php echo $tagline ?></div>
+          <?php if( is_front_page() || is_home() ) { ?>
+            <?php if ($tagline) { ?>
+            <div class="header-tagline"><?php echo $tagline ?></div>
+            <?php } ?>
           <?php } ?>
         </span>
 

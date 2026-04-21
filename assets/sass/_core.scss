@@ -1541,9 +1541,9 @@ div.buttons {
 }
 
 body:not(.home) {
-	.site-header {
-		padding-bottom: 25px;
-	}
+	// .site-header {
+	// 	padding-bottom: 10px;
+	// }
 	&:has(.top--partners) .site-header {
 		padding-top: 0;
 		padding-bottom: 0;
